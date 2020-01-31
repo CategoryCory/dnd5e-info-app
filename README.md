@@ -1,24 +1,4 @@
-# dnd_reference
+# DND 5E Information App
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+This app is a simple Vue app that displays in-game information for DND 5th Edition. It consumes the
+[DND5E API](http://www.dnd5eapi.co/).
