@@ -82,7 +82,7 @@
                         <div class="col-sm-12">
                             <p class="card-text text-left">
                                 <span class="font-weight-bold">Languages:</span>
-                                {{ this.monsterData.languages }}
+                                {{ this.monsterData.languages || "None" }}
                             </p>
                         </div>
                     </div>
