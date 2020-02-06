@@ -81,8 +81,56 @@
                     <div class="row mb-3">
                         <div class="col-sm-12">
                             <p class="card-text text-left">
+                                <span class="font-weight-bold">Proficiencies:</span>
+                                {{ this.monsterProficiencies.join(", ") || "None" }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-12">
+                            <p class="card-text text-left">
+                                <span class="font-weight-bold">Damage Vulnerabilities:</span>
+                                {{ this.monsterData.damage_vulnerabilities.join(", ") || "None" }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-12">
+                            <p class="card-text text-left">
+                                <span class="font-weight-bold">Damage Resistances:</span>
+                                {{ this.monsterData.damage_resistances.join(", ") || "None" }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-12">
+                            <p class="card-text text-left">
+                                <span class="font-weight-bold">Damage Immunities:</span>
+                                {{ this.monsterData.damage_immunities.join(", ") || "None" }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-12">
+                            <p class="card-text text-left">
+                                <span class="font-weight-bold">Condition Immunities:</span>
+                                {{ this.monsterConditionImmunities.join(", ") || "None" }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-12">
+                            <p class="card-text text-left">
                                 <span class="font-weight-bold">Languages:</span>
                                 {{ this.monsterData.languages || "None" }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-12">
+                            <p class="card-text text-left">
+                                <span class="font-weight-bold">Senses:</span>
+                                {{ this.monsterSenses.join(", ") || "None" }}
                             </p>
                         </div>
                     </div>
@@ -107,6 +155,10 @@ export default {
         return {
             monsterData: {},
             monsterSpeed: [],
+            monsterSenses: [],
+            monsterProficiencies: [],
+            monsterConditionImmunities: [],
+            monsterSpecialAbilities: [],
             errors: []
         };
     },
@@ -118,15 +170,56 @@ export default {
                 );
                 this.monsterData = response.data;
 
-                // Format monster speed string
+                // Format monster speed string array
                 this.monsterSpeed = [];
                 const spd = this.monsterData.speed;
                 for (const [speedType, speedDistance] of Object.entries(spd)) {
                     this.monsterSpeed.push(`${speedType} ${speedDistance}`);
                 }
+
+                // Format monster senses string array
+                this.monsterSenses = [];
+                const senses = this.monsterData.senses;
+                for (const [senseType, senseValue] of Object.entries(senses)) {
+                    this.monsterSenses.push(
+                        `${this.getDisplayName(senseType)} ${senseValue}`
+                    );
+                }
+
+                // Format monster proficiencies string array
+                this.monsterProficiencies = [];
+                const proficiencies = this.monsterData.proficiencies;
+                proficiencies.forEach(prof => {
+                    this.monsterProficiencies.push(
+                        `${prof.name} +${prof.value}`
+                    );
+                });
+
+                // Format monster condition immunities string array
+                this.monsterConditionImmunities = [];
+                const condImmunities = this.monsterData.condition_immunities;
+                condImmunities.forEach(immunity => {
+                    this.monsterConditionImmunities.push(`${immunity.name}`);
+                });
+
+                // TODO: Format monster special abilities array
+
+                // TODO: Format monster actions array
             } catch (error) {
                 this.errors.push(error);
             }
+        }
+    },
+    methods: {
+        getDisplayName(dbName) {
+            const words = dbName.split("_");
+            const capitalizedWords = [];
+            words.forEach(word => {
+                capitalizedWords.push(
+                    word.charAt(0).toUpperCase() + word.slice(1)
+                );
+            });
+            return capitalizedWords.join(" ");
         }
     }
 };
