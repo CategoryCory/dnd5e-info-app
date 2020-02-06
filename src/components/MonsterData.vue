@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="card w-75 mx-auto p-3" v-if="monster">
+        <div class="card w-75 mx-auto mb-4 p-3" v-if="monster">
             <div class="card-body">
                 <h2 class="card-title">{{ this.monsterData.name }}</h2>
                 <h5
@@ -134,6 +134,34 @@
                             </p>
                         </div>
                     </div>
+                </div>
+                <div class="container" v-if="monsterData.actions">
+                    <hr />
+                    <h5 class="card-subtitle mt-4 mb-3 text-muted">Actions</h5>
+                    <ul class="list-group text-left">
+                        <li
+                            class="list-group-item"
+                            v-for="action in monsterData.actions"
+                            v-bind:key="action.name"
+                        >
+                            <span class="font-weight-bold">{{action.name}}:</span>
+                            {{action.desc}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="container" v-if="monsterData.special_abilities">
+                    <hr />
+                    <h5 class="card-subtitle mt-4 mb-3 text-muted">Special Abilities</h5>
+                    <ul class="list-group text-left">
+                        <li
+                            class="list-group-item"
+                            v-for="ability in monsterData.special_abilities"
+                            v-bind:key="ability.name"
+                        >
+                            <span class="font-weight-bold">{{ability.name}}:</span>
+                            {{ability.desc}}
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
