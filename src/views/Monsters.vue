@@ -2,7 +2,7 @@
     <div class="container">
         <h2 class="mt-4 mb-4">DND 5th Edition Monster Guide</h2>
         <div class="mb-5">
-            <MonsterSelector @selectedMonster="onMonsterSelected" />
+            <Selector @selectedItem="onMonsterSelected" selectType="monsters" />
         </div>
         <MonsterData :monster="selectedMonster" />
     </div>
@@ -10,13 +10,13 @@
 
 <script>
 // @ is an alias to /src
-import MonsterSelector from "@/components/MonsterSelector.vue";
+import Selector from "@/components/Selector.vue";
 import MonsterData from "@/components/MonsterData.vue";
 
 export default {
-    name: "home",
+    name: "monsters",
     components: {
-        MonsterSelector,
+        Selector,
         MonsterData
     },
     data() {
