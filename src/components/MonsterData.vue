@@ -229,10 +229,6 @@ export default {
                 condImmunities.forEach(immunity => {
                     this.monsterConditionImmunities.push(`${immunity.name}`);
                 });
-
-                // TODO: Format monster special abilities array
-
-                // TODO: Format monster actions array
             } catch (error) {
                 this.errors.push(error);
             }

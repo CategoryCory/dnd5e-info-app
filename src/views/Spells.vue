@@ -4,15 +4,18 @@
         <div class="mb-5">
             <Selector @selectedItem="onSpellSelected" selectType="spells" />
         </div>
+        <SpellData :spell="selectedSpell" />
     </div>
 </template>
 
 <script>
 import Selector from "@/components/Selector.vue";
+import SpellData from "@/components/SpellData.vue";
 export default {
     name: "spells",
     components: {
-        Selector
+        Selector,
+        SpellData
     },
     data() {
         return {
