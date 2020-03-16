@@ -3,6 +3,7 @@
         <v-select
             v-model="selectedItem"
             label="name"
+            autocomplete="true"
             :options="data"
             :reduce="item => item.index"
             @input="selectionChanged"
@@ -20,7 +21,7 @@ export default {
     data() {
         return {
             count: 0,
-            data: {},
+            data: [],
             selectedItem: "",
             errors: []
         };
