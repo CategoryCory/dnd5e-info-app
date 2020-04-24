@@ -1,6 +1,6 @@
 # DND 5E Information App
 
-This app is a simple Vue app that displays in-game information for DND 5th Edition. It uses the
+This is a Vue app that displays in-game information for DND 5th Edition. It uses the
 [DND5E API](http://www.dnd5eapi.co/).
 
 ## Build Setup
