@@ -194,7 +194,7 @@ export default {
         async monster() {
             try {
                 const response = await axios.get(
-                    `http://www.dnd5eapi.co/api/monsters/${this.monster}`
+                    `https://www.dnd5eapi.co/api/monsters/${this.monster}`
                 );
                 this.monsterData = response.data;
 

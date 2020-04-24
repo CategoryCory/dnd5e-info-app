@@ -115,7 +115,7 @@ export default {
         async spell() {
             try {
                 const response = await axios.get(
-                    `http://www.dnd5eapi.co/api/spells/${this.spell}`
+                    `https://www.dnd5eapi.co/api/spells/${this.spell}`
                 );
                 this.spellData = response.data;
 

@@ -29,7 +29,7 @@ export default {
     async created() {
         try {
             const response = await axios.get(
-                `http://www.dnd5eapi.co/api/${this.selectType}`
+                `https://www.dnd5eapi.co/api/${this.selectType}`
             );
             this.count = response.data.count;
             this.data = response.data.results;
