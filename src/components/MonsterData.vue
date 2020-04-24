@@ -137,31 +137,28 @@
                 </div>
                 <div class="container" v-if="monsterData.actions">
                     <hr />
-                    <h5 class="card-subtitle mt-4 mb-3 text-muted">Actions</h5>
-                    <ul class="list-group text-left">
-                        <li
-                            class="list-group-item"
-                            v-for="action in monsterData.actions"
-                            v-bind:key="action.name"
-                        >
-                            <span class="font-weight-bold">{{action.name}}:</span>
-                            {{action.desc}}
-                        </li>
-                    </ul>
+                    <h4 class="card-subtitle mt-4 mb-3 text-muted">Actions</h4>
+                    <p
+                        class="text-left"
+                        v-for="action in monsterData.actions"
+                        v-bind:key="action.name"
+                    >
+                        <span class="font-weight-bold">{{action.name}}:</span>
+                        {{action.desc}}
+                    </p>
                 </div>
                 <div class="container" v-if="monsterData.special_abilities">
                     <hr />
-                    <h5 class="card-subtitle mt-4 mb-3 text-muted">Special Abilities</h5>
-                    <ul class="list-group text-left">
-                        <li
-                            class="list-group-item"
-                            v-for="ability in monsterData.special_abilities"
-                            v-bind:key="ability.name"
-                        >
-                            <span class="font-weight-bold">{{ability.name}}:</span>
-                            {{ability.desc}}
-                        </li>
-                    </ul>
+                    <h4 class="card-subtitle mt-4 mb-3 text-muted">Special Abilities</h4>
+
+                    <p
+                        class="text-left"
+                        v-for="ability in monsterData.special_abilities"
+                        v-bind:key="ability.name"
+                    >
+                        <span class="font-weight-bold">{{ability.name}}:</span>
+                        {{ability.desc}}
+                    </p>
                 </div>
             </div>
         </div>
