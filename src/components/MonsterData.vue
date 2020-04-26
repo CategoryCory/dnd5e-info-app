@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="card w-75 mx-auto mb-4 p-3" v-if="monster">
+        <div class="card mb-4" v-if="monster">
             <div class="card-body">
                 <h2 class="card-title">{{ this.monsterData.name }}</h2>
                 <h5

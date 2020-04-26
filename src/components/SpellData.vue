@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="card w-75 mb-4 mx-auto p-3" v-if="spell">
+        <div class="card mb-4" v-if="spell">
             <div class="card-body">
                 <h2 class="card-title">{{ this.spellData.name }}</h2>
                 <h5
